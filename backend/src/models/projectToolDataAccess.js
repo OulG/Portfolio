@@ -13,17 +13,6 @@ const create = (projectId, toolId) => {
     });
 };
 
-// const update = (projectId, toolId) => {
-//   return db
-//     .query(
-//       "UPDATE project_has_tools SET",
-//       [projectId, toolId]
-//     )
-//     .then(([result]) => {
-//       return result;
-//     });
-// };
-
 const update = (toolId) => {
   return db.query("UPDATE project_has_tools SET ? WHERE project_id = ?", [
     toolId,

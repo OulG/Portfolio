@@ -28,11 +28,13 @@ const router = express.Router();
 
 const adminRoutes = require("./routes/adminRoutes");
 const projectRoutes = require("./routes/projectRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 app.use("/api", router);
 
 router.use("/admin", adminRoutes);
 router.use("/project", projectRoutes);
+router.use("/auth", authRoutes);
 
 // Redirect all requests to the REACT app
 const reactIndexFile = path.join(
