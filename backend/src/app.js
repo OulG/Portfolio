@@ -2,7 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
-const router = require("./router");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 
@@ -15,6 +15,7 @@ app.use(
 );
 
 app.use(express.json());
+app.use(cookieParser());
 
 // Serve the public folder for public resources
 app.use(express.static(path.join(__dirname, "../public")));
@@ -23,7 +24,15 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
 
 // API routes
-app.use(router);
+const router = express.Router();
+
+const adminRoutes = require("./routes/adminRoutes");
+// const projectRoutes = require("./routes/projectRoutes");
+
+app.use("/api", router);
+
+router.use("/admin", adminRoutes);
+// router.use("/project", projectRoutes);
 
 // Redirect all requests to the REACT app
 const reactIndexFile = path.join(
