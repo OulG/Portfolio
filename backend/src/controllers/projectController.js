@@ -1,4 +1,5 @@
 const projectDataAccess = require("../models/projectDataAccess");
+const projectToolDataAccess = require("../models/projectToolDataAccess");
 
 exports.getAll = (req, res) => {
   projectDataAccess
@@ -23,7 +24,7 @@ exports.getOne = (req, res) => {
 };
 
 exports.addOne = (req, res) => {
-  const { title, description, picture, link } = req.body;
+  const { title, description, picture, link, projectTools } = req.body;
 
   projectDataAccess
     .create({
@@ -32,8 +33,20 @@ exports.addOne = (req, res) => {
       picture,
       link,
     })
-    .then((newProject) => console.error(newProject))
-    .then(() => res.status(201).send("Good job Lou!"))
+    .then((newProject) => {
+      console.error(newProject);
+      // Pour chaque tool, je fais une requête qui vient lié l'Id du project & l'Id du tool.
+      const request = projectTools.map((toolId) => {
+        return projectToolDataAccess.create(newProject.id, toolId);
+      });
+      Promise.all(request)
+        .then(() => {
+          res.status(201).send("Good job Lou!");
+        })
+        .catch((err) => {
+          res.status(500).send({ err });
+        });
+    })
     .catch((err) => {
       res.status(500).send({ err });
     });
@@ -41,10 +54,24 @@ exports.addOne = (req, res) => {
 
 exports.updateOne = (req, res) => {
   const projectId = parseInt(req.params.id, 10);
+  const { title, description, picture, link } = req.body;
 
   projectDataAccess
-    .update(projectId, { ...req.body })
-    .then((info) => console.error(info))
+    .update(projectId, { title, description, picture, link })
+    // .then((updateProject) => {
+    //   console.error(updateProject);
+    //   // Pour chaque tool, je fais une requête qui vient lié l'Id du project & l'Id du tool.
+    //   const request = projectTools.map((toolId) => {
+    //     return projectToolDataAccess.update(updateProject.id, toolId);
+    //   });
+    //   Promise.all(request)
+    //     .then(() => {
+    //       res.status(201).send("Good job Lou!");
+    //     })
+    //     .catch((err) => {
+    //       res.status(500).send({ err });
+    //     });
+    // })
     .then(() => res.status(201).json("You'r really good"))
     .catch((err) => res.status(300).send({ err }));
 };
