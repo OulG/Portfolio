@@ -42,10 +42,13 @@ CREATE TABLE IF NOT EXISTS `portfolio`.`project_has_tools` (
   PRIMARY KEY (`project_Id`, `tool_Id`),
   CONSTRAINT `fk_project_has_tools_tool`
     FOREIGN KEY (`tool_Id`)
-    REFERENCES `portfolio`.`tool` (`Id`),
+    REFERENCES `portfolio`.`tool` (`Id`)
+    ON DELETE CASCADE,
   CONSTRAINT `fk_project_has_tools_project`
     FOREIGN KEY (`project_Id`)
-    REFERENCES `portfolio`.`project` (`Id`));
+    REFERENCES `portfolio`.`project` (`Id`)
+    ON DELETE CASCADE);
+    
 
 -- -----------------------------------------------------
 -- Table `portfolio`.`user`
