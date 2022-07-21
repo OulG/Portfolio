@@ -1,0 +1,42 @@
+@import "../styles/_Variables.scss";
+@import "../styles/Breakpoints";
+
+.home {
+    width: 100%;
+    height:100vh;
+
+    .container-double {
+        width: 100%;
+        height: 100%;
+
+        @include desktop {
+            display: flex;
+            flex-direction: row-reverse;
+          }
+
+        .waves {
+            background-image: url("../assets/waves.jpg");
+            width: 100%;
+            height: 60%;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            @include desktop {
+                width: 60%;
+                height: 100%;
+              }
+        }
+    
+        .yellow-bottom {
+            display: flex;
+            width: 100%;
+            height: 40%;
+            background-color: $backgroundYellow;
+
+            @include desktop {
+                width: 40%;
+                height: 100%;
+              }
+        }
+    }
+}
