@@ -23,7 +23,7 @@ export default function AboutMe() {
             </NavLink>
           </li>
           <li>
-            <NavLink style={getActiveLinkStyle} to="/projets">
+            <NavLink style={getActiveLinkStyle} to="/projects">
               Projects
             </NavLink>
           </li>

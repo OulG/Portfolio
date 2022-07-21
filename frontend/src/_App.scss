@@ -1,4 +1,5 @@
 @import "./styles/_Variables.scss";
+@import "./styles/Breakpoints";
 
 /* Box sizing rules */
 *,
@@ -89,6 +90,28 @@ body {
   margin: 0;
   font-family: $Ibarra;
   color: $grey;
+  background-color: $backgroundYellowGrey;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  .Application {
+    padding: 0 2rem;
+  }
+  @include LGmobil {
+    padding: 0 2rem;
+  }
+  @include tablet {
+    padding: 0 2rem;
+    }
+  @include LGtablet {
+    padding: 0 2rem;
+    }
+  @include desktop {
+    padding: 0 3rem;
+  }
+  @include LGdesktop {
+    padding: 0 3rem;
+  }
 }

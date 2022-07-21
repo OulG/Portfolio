@@ -1,0 +1,92 @@
+@import "../styles/_Variables.scss";
+@import "../styles/Breakpoints";
+
+.project-id {
+    width: 100%;
+    height: 30vh;
+    padding: 10px;
+
+    @include LGmobil {
+      height: 12rem;
+    }
+    @include tablet {
+        height: 17rem;
+      }
+    @include LGtablet {
+        height: 22rem;
+      }
+    @include desktop {
+        height: 28rem;
+    }
+    @include LGdesktop {
+        height: 31rem;
+    }
+
+    .container-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        width: 70%;
+        height: 130px;
+
+        @include LGmobil {
+            height: 150px;
+          }
+        @include tablet {
+            height: 225px;
+          }
+        @include LGtablet {
+            height: 300px;
+          }
+        @include desktop {
+            height: 380px;
+        }
+        @include LGdesktop {
+            height: 450px;
+        }
+
+
+        .box-left {
+            width: 50%;
+            height: 100%;
+            background-color: $pink;
+        }
+
+        .box-right {
+            width: 50%;
+            height: 100%;
+            background-color: $blue;
+        }
+
+        img {
+            position: absolute;
+            border: 3px solid black;
+            width: 70%;
+            height: 90%;
+            left: calc(50% - 40%);
+
+            @include LGmobil {
+                width: 70%;
+                left: calc(50% - 40%);
+              }
+            @include tablet {
+                width: 70%;
+                left: calc(50% - 40%);
+              }
+            @include LGtablet {
+                width: 70%;
+                left: calc(50% - 40%);
+              }
+            @include desktop {
+                width: 70%;
+                left: calc(50% - 40%);
+            }
+            @include LGdesktop {
+                width: 70%;
+                left: calc(50% - 40%);
+            }
+        }
+    }
+
+}

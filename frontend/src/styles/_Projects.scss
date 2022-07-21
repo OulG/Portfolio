@@ -1,0 +1,12 @@
+@import "../styles/_Variables.scss";
+@import "../styles/Breakpoints";
+
+.projects {
+    width: 100vw;
+
+    h1 {
+        font-family: $BungeeOutline;
+        font-size: 3.4rem;
+    }
+}
+
