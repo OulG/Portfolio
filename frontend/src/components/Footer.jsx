@@ -16,8 +16,8 @@ export default function Footer() {
         <p>Lou Gain</p>
       </div>
       <div className="social-links">
-        <AiFillGithub color="rgb(75, 78, 78)" size="2.5em" />
-        <AiFillLinkedin color="rgb(75, 78, 78)" size="2.5em" />
+        <AiFillGithub color="rgb(75, 78, 78)" size="2em" />
+        <AiFillLinkedin color="rgb(75, 78, 78)" size="2em" />
         <img src={avatar} alt="avatar" />
       </div>
     </footer>
