@@ -1,7 +1,18 @@
+import "../styles/_Home.scss";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 export default function Home() {
   return (
-    <header>
-      <h1>Home</h1>
-    </header>
+    <section className="home">
+      <div className="container-double">
+        <div className="waves">
+          <Header />
+        </div>
+        <div className="yellow-bottom">
+          <Footer />
+        </div>
+      </div>
+    </section>
   );
 }
