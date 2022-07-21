@@ -1,12 +1,15 @@
-import Home from "./pages/Home";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 
 import "./_App.scss";
 
 function App() {
   return (
     <div className="App">
-      <Home />
-      <h1>Coucou</h1>
+      <Header />
+      <Main />
+      <Footer />
     </div>
   );
 }

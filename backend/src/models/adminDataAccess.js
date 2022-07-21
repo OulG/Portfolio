@@ -12,6 +12,12 @@ const findOne = (id) => {
     .then(([results]) => results[0]);
 };
 
+const findByUserEmail = (email) => {
+  return db
+    .query(`SELECT * FROM user WHERE email = ?`, [email])
+    .then((result) => result[0]);
+};
+
 const create = ({ username, email, hash }) => {
   return db
     .query(
@@ -34,4 +40,4 @@ const destroy = (id) => {
     .then(([result]) => result.affectedRows !== 0);
 };
 
-module.exports = { findAll, findOne, create, update, destroy };
+module.exports = { findAll, findOne, create, update, destroy, findByUserEmail };
