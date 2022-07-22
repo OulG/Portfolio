@@ -1,0 +1,67 @@
+@import "../styles/_Variables.scss";
+@import "../styles/Breakpoints";
+
+.about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    img {
+        width: 50%;
+        filter: drop-shadow(3px 8px 10px rgba(0, 0, 0, 0.39));
+
+        @include LGmobil {
+            width: 40%;
+        }
+        @include tablet {
+            width: 33%;
+        }
+        @include LGtablet {
+            width: 23%;
+        }
+        @include desktop {
+            width: 20%;
+        }
+        @include LGdesktop {
+            width: 20%;
+        }
+    }
+
+    h1 {
+        font-size:2rem;
+        font-family: $Bungee;
+        color: black;
+
+        @include LGmobil {
+            font-size:2.5rem;
+        }
+        @include tablet {
+            font-size:3rem;
+        }
+        @include LGtablet {
+            font-size:3.2rem;
+        }
+        @include desktop {
+            font-size:3.5rem;
+        }
+        @include LGdesktop {
+            font-size:3.5rem;
+        }
+    }
+
+    hr {
+        border: 1px solid black;
+        width: 10rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    p {
+        text-align: center;
+    }
+}
