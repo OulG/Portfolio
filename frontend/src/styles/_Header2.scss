@@ -1,0 +1,35 @@
+@import "../styles/_Variables.scss";
+@import "../styles/Breakpoints";
+
+.container-header {
+    width: 100%;
+    background-color: transparent;
+
+    ul {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        height: 5em;
+
+        @include desktop {
+            height: 6em;
+        }
+
+        li {
+            font-family: $Bungee;
+            font-size:0.9rem;
+            margin: 0.7rem;
+
+            @include desktop {
+                font-size: 1.4rem;
+                margin: 1.8rem;
+              }
+
+            a{
+                color: $grey;
+                text-transform: uppercase;
+            }
+        }
+
+    }
+}

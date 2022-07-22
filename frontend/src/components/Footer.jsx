@@ -1,9 +1,7 @@
-import {
-  AiFillGithub,
-  AiFillLinkedin,
-  AiOutlineCopyrightCircle,
-} from "react-icons/ai";
+import { AiOutlineCopyrightCircle } from "react-icons/ai";
 import avatar from "../assets/avatar.png";
+import Linkedin from "../assets/linkedin.svg";
+import Github from "../assets/github.svg";
 import "../styles/_Variables.scss";
 import "../styles/_Footer.scss";
 
@@ -16,8 +14,8 @@ export default function Footer() {
         <p>Lou Gain</p>
       </div>
       <div className="social-links">
-        <AiFillGithub color="rgb(75, 78, 78)" size="2em" />
-        <AiFillLinkedin color="rgb(75, 78, 78)" size="2em" />
+        <img src={Linkedin} alt="Logo Linkedin" className="social" />
+        <img src={Github} alt="Logo Github" className="social" />
         <img src={avatar} alt="avatar" />
       </div>
     </footer>
