@@ -1,10 +1,16 @@
 ## Concept
 
-This template is meant to serve as a foundation for every P2/P3 following the React-Express-MySQL stack, as learned in Wild Code School.
-It's pre-configured with a set of tools which'll help students produce industry-quality and easier-to-maintain code, while staying as simple as possible to use.
+This is my portfolio.
 
-## Database
-![](images/BDD_Diagram.png)
+## Backlog
+- En tant qu’administrateur, je souhaite stocker les informations de mes projets et mon compte dans une base de donnée → US_dataBase
+- En tant qu’administrateur, je souhaite pouvoir modifier mes projects → US_projectMVC
+- En tant qu’administrateur, je souhaite pouvoir m’authentifier afin de les modifier via le front → US_adminMVC
+- En tant qu’utilisateur, je souhaite naviguer efficacement entre les pages → US_navBar
+- En tant qu’utilisateur, je souhaite être bien accueilli → US_Home
+- En tant qu’utilisateur, je souhaite pouvoir visualiser les projets → US_projects
+- En tant qu’utilisateur, je souhaite pouvoir m’informer sur la créatrice de ces projets → US_aboutMe
+- En tant qu’administrateur, je souhaite pouvoir ajouter, modifier & supprimer un projet → US_adminBoard
 
 ## Setup & Use
 
