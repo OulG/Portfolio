@@ -1,3 +1,7 @@
+import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 
 import "./_App.scss";
@@ -5,8 +9,14 @@ import "./_App.scss";
 function App() {
   return (
     <div className="App">
-      <Home />
-      <h1>Coucou</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Header />
+      <div className="Application">
+        <Main />
+      </div>
+      <Footer />
     </div>
   );
 }

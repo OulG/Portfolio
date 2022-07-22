@@ -1,4 +1,5 @@
 @import "./styles/_Variables.scss";
+@import "./styles/Breakpoints";
 
 /* Box sizing rules */
 *,
@@ -23,9 +24,13 @@ dd {
   margin: 0;
 }
 
-ul[role='list'],
-ol[role='list'] {
+ul,
+ol {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Set core root defaults */
@@ -83,13 +88,30 @@ img {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: $Ibarra;
+  color: $grey;
+  background-color: $backgroundYellowGrey;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  color: red;
+.App {
+  .Application {
+    padding: 0 2rem;
+  }
+  @include LGmobil {
+    padding: 0 2rem;
+  }
+  @include tablet {
+    padding: 0 2rem;
+    }
+  @include LGtablet {
+    padding: 0 2rem;
+    }
+  @include desktop {
+    padding: 0 3rem;
+  }
+  @include LGdesktop {
+    padding: 0 3rem;
+  }
 }
