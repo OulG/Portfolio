@@ -14,7 +14,7 @@
             flex-direction: row-reverse;
           }
 
-        .waves {
+        .waves-box {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -28,67 +28,188 @@
                 width: 60%;
                 height: 100%;
               }
-            
-              .social-links {
+
+              .container-header {
                 display: flex;
-                align-items: flex-end;
-                justify-content: end;
-        
-                .social {
-                    width: 15%;
-                    padding-right: 0.4rem;
-        
+                flex-direction: column-reverse;
+                width: 100%;
+                background-color: transparent;
+
+                h1 {
+                    display: flex;
+                    font-size: 1rem;
+                    font-family: $Bungee;
+
                     @include LGmobil {
-                        width: 9%
                     }
                     @include tablet {
-                        width: 9%
                     }
                     @include LGtablet {
-                        width: 9%
                     }
                     @include desktop {
-                        width: 9%
-                    }
-                    @include LGdesktop {
-                        width: 9%
+                        display: none;
                     }
                 }
-        
-                img {
-                    width: 24%;
-                    filter: drop-shadow(3px 8px 10px rgba(0, 0, 0, 0.39));
-        
-                    @include LGmobil {
-                        width: 9%
-                    }
-                    @include tablet {
-                        width: 9%
-                    }
-                    @include LGtablet {
-                        width: 9%
-                    }
+            
+                ul {
+                    display: flex;
+                    justify-content: end;
+                    align-items: center;
+                    height: 5em;
+            
                     @include desktop {
-                        width: 9%
+                        height: 6em;
                     }
-                    @include LGdesktop {
-                        width: 9%
+            
+                    li {
+                        font-family: $Bungee;
+                        font-size:0.9rem;
+                        margin: 0.7rem;
+            
+                        @include desktop {
+                            font-size: 1.4rem;
+                            margin: 1.8rem;
+                          }
+            
+                        a{
+                            color: $grey;
+                            text-transform: uppercase;
+                        }
                     }
+            
+                }
+            }
+            
+            .social-links-waves {
+            display: flex;
+            align-items: flex-end;
+            justify-content: end;
+    
+            .social-waves {
+                width: 15%;
+                padding-right: 0.4rem;
+    
+                @include LGmobil {
+                    width: 9%
+                }
+                @include tablet {
+                    width: 9%
+                }
+                @include LGtablet {
+                    width: 9%
+                }
+                @include desktop {
+                    width: 9%
+                }
+                @include LGdesktop {
+                    width: 9%
+                }
+            }
+    
+            .avatar-waves {
+                width: 24%;
+                filter: drop-shadow(3px 8px 10px rgba(0, 0, 0, 0.39));
+    
+                @include LGmobil {
+                    width: 9%
+                }
+                @include tablet {
+                    width: 9%
+                }
+                @include LGtablet {
+                    width: 9%
+                }
+                @include desktop {
+                    width: 9%
+                }
+                @include LGdesktop {
+                    width: 9%
                 }
             }
         }
+    }
     
-        .yellow-bottom {
-            display: flex;
-            align-items: end;
-            width: 100%;
-            height: 40%;
-            background-color: $backgroundYellow;
+    .yellow-box {
+        display: flex;
+        align-items: end;
+        width: 100%;
+        height: 40%;
+        background-color: $backgroundYellowGrey;
 
+        @include desktop {
+            width: 40%;
+            height: 100%;
+        }
+
+        h1 {
+            display: none;
+
+            @include LGmobil {
+            }
+            @include tablet {
+            }
+            @include LGtablet {
+            }
             @include desktop {
-                width: 40%;
-                height: 100%;
-              }
+                display: flex;
+                font-size: 3rem;
+                font-family: $Bungee;
+                align-self: flex-start;
+                writing-mode: vertical-rl;
+                text-orientation: upright;
+                word-spacing: -0.5em;
+            }
+            @include LGdesktop {
+            }
+        }
+
+        .social-links-yellow {
+            display: flex;
+            align-items: flex-end;
+            justify-content: end;
+    
+            .social-yellow {
+                width: 15%;
+                padding-right: 0.4rem;
+    
+                @include LGmobil {
+                    width: 9%
+                }
+                @include tablet {
+                    width: 9%
+                }
+                @include LGtablet {
+                    width: 9%
+                }
+                @include desktop {
+                    width: 9%
+                }
+                @include LGdesktop {
+                    width: 9%
+                }
+            }
+    
+            .avatar-yellow {
+                width: 5%;
+                filter: drop-shadow(3px 8px 10px rgba(0, 0, 0, 0.39));
+    
+                @include LGmobil {
+                    width: 9%
+                }
+                @include tablet {
+                    width: 9%
+                }
+                @include LGtablet {
+                    width: 9%
+                }
+                @include desktop {
+                    width: 9%
+                }
+                @include LGdesktop {
+                    width: 9%
+                }
+            }
         }
     }
+  }
 }

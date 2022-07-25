@@ -4,7 +4,7 @@
 .project-id {
     width: 100%;
     height: 30vh;
-    padding: 10px;
+    margin: 10px;
 
     @include LGmobil {
       height: 12rem;
@@ -48,23 +48,23 @@
 
 
         .box-left {
-            width: 50%;
+            width: 60%;
             height: 100%;
             background-color: $pink;
         }
 
         .box-right {
-            width: 50%;
+            width: 40%;
             height: 100%;
             background-color: $blue;
         }
   
         .box-image {
           position: absolute;
-          border: 3px solid black;
+          border: 5px solid black;
           width: 70%;
           height: 90%;
-          left: calc(50% - 40%);
+          left: calc(50% - 44%);
           overflow: hidden;
           transition: 0.3s;
 
@@ -85,24 +85,14 @@
           }
 
           @include LGmobil {
-              width: 70%;
-              left: calc(50% - 40%);
             }
           @include tablet {
-              width: 70%;
-              left: calc(50% - 40%);
             }
           @include LGtablet {
-              width: 70%;
-              left: calc(50% - 40%);
             }
           @include desktop {
-              width: 70%;
-              left: calc(50% - 40%);
           }
           @include LGdesktop {
-              width: 70%;
-              left: calc(50% - 40%);
           }
 
           img {

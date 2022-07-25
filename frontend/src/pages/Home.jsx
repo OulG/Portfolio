@@ -24,8 +24,9 @@ export default function Home() {
   return (
     <section className="home">
       <div className="container-double">
-        <div className="waves">
+        <div className="waves-box">
           <header className="container-header">
+            <h1>Lou Gain</h1>
             <nav>
               <ul>
                 <li>
@@ -41,23 +42,28 @@ export default function Home() {
               </ul>
             </nav>
           </header>
-          <div className="social-links">
-            <img src={Linkedin} alt="Logo Linkedin" className="social" />
-            <img src={Github} alt="Logo Github" className="social" />
-            <img src={avatar} alt="avatar" />
+          <div className="social-links-waves">
+            <img src={Linkedin} alt="Logo Linkedin" className="social-waves" />
+            <img src={Github} alt="Logo Github" className="social-waves" />
+            <img src={avatar} alt="avatar" className="avatar-waves" />
           </div>
         </div>
-        <div className="yellow-bottom">
+        <div className="yellow-box">
+          <h1>Lou Gain</h1>
           <footer className="footer">
             <div className="copyright">
               <p>Copyright 2022</p>
               <AiOutlineCopyrightCircle />
               <p>Lou Gain</p>
             </div>
-            <div className="social-links">
-              <img src={Linkedin} alt="Logo Linkedin" className="social" />
-              <img src={Github} alt="Logo Github" className="social" />
-              <img src={avatar} alt="avatar" />
+            <div className="social-links-yellow">
+              <img
+                src={Linkedin}
+                alt="Logo Linkedin"
+                className="social-yellow"
+              />
+              <img src={Github} alt="Logo Github" className="social-yellow" />
+              <img src={avatar} alt="avatar-yellow" />
             </div>
           </footer>
         </div>
