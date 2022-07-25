@@ -1,0 +1,22 @@
+@import "../styles/_Variables.scss";
+@import "../styles/Breakpoints";
+
+.application {
+    padding: 0 2rem;
+  
+    @include LGmobil {
+      padding: 0 2rem;
+    }
+    @include tablet {
+      padding: 0 2rem;
+      }
+    @include LGtablet {
+      padding: 0 2rem;
+      }
+    @include desktop {
+      padding: 0 3rem;
+    }
+    @include LGdesktop {
+      padding: 0 3rem;
+    }
+  }

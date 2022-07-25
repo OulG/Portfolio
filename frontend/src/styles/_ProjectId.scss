@@ -58,35 +58,73 @@
             height: 100%;
             background-color: $blue;
         }
+  
+        .box-image {
+          position: absolute;
+          border: 3px solid black;
+          width: 70%;
+          height: 90%;
+          left: calc(50% - 40%);
+          overflow: hidden;
+          transition: 0.3s;
 
-        img {
-            position: absolute;
-            border: 3px solid black;
-            width: 70%;
-            height: 90%;
-            left: calc(50% - 40%);
+          &:hover {
+            -webkit-filter: drop-shadow(5px 10px 10px #000); /* Chrome, Safari, Opera */
+            filter: drop-shadow(5px 10px 10px #000);
+            transition: 0.3s;
+          }
+          &:hover img {
+            -webkit-filter : contrast(60%); /* Chrome, Safari, Opera */
+            filter : contrast(60%);
+            transition: 0.3s;
+          }
 
-            @include LGmobil {
-                width: 70%;
-                left: calc(50% - 40%);
-              }
-            @include tablet {
-                width: 70%;
-                left: calc(50% - 40%);
-              }
-            @include LGtablet {
-                width: 70%;
-                left: calc(50% - 40%);
-              }
-            @include desktop {
-                width: 70%;
-                left: calc(50% - 40%);
+          &:hover .title-project {
+            opacity: 1;
+            transition: 0.3s;
+          }
+
+          @include LGmobil {
+              width: 70%;
+              left: calc(50% - 40%);
             }
-            @include LGdesktop {
-                width: 70%;
-                left: calc(50% - 40%);
+          @include tablet {
+              width: 70%;
+              left: calc(50% - 40%);
             }
+          @include LGtablet {
+              width: 70%;
+              left: calc(50% - 40%);
+            }
+          @include desktop {
+              width: 70%;
+              left: calc(50% - 40%);
+          }
+          @include LGdesktop {
+              width: 70%;
+              left: calc(50% - 40%);
+          }
+
+          img {
+            position: relative;
+            max-width: 100%; // Ton image ne sera jamais plus grande que sa taille originale
+            width: 100%;
+          }
+
+        .title-project {
+          position: absolute;
+          font-size: 30px;
+          top: calc(50% - 30px);
+          left: calc(50% - 75px);
+          width: 150px;
+          height: 60px;
+          text-align: center;
+          line-height: 56px;
+          opacity: 0;
+          transition: 0.3s;
+          z-index: 999;
+          color: black;
+        }
         }
     }
-
 }

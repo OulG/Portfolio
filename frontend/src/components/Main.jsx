@@ -4,10 +4,11 @@ import Project from "../pages/Project";
 import AboutMe from "../pages/AboutMe";
 import Admin from "../pages/Admin";
 import Wrapper from "../services/wrapper";
+import "../styles/_Main.scss";
 
 export default function Main() {
   return (
-    <div>
+    <section className="application">
       <Wrapper>
         <Routes>
           <Route path="/projects" element={<Projects />} />
@@ -16,6 +17,6 @@ export default function Main() {
           <Route path="/admin" element={<Admin />} />
         </Routes>
       </Wrapper>
-    </div>
+    </section>
   );
 }
