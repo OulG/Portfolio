@@ -2,21 +2,21 @@
 @import "../styles/Breakpoints";
 
 .application {
-    padding: 0 2rem;
-  
-    @include LGmobil {
-      padding: 0 2rem;
-    }
-    @include tablet {
-      padding: 0 2rem;
-      }
-    @include LGtablet {
-      padding: 0 2rem;
-      }
-    @include desktop {
-      padding: 0 3rem;
-    }
-    @include LGdesktop {
-      padding: 0 3rem;
-    }
+  position: relative;
+  padding: 120px 2rem 100px;
+  min-height: 100vh;
+  border: 2px solid red;
+  padding-bottom: 100px;
+
+  @include LGmobil {
   }
+  @include tablet {
+    }
+  @include LGtablet {
+    }
+  @include desktop {
+    padding: 120px 3rem 100px;
+  }
+  @include LGdesktop {
+  }
+}

@@ -1,70 +1,175 @@
 @import "../styles/_Variables.scss";
 @import "../styles/Breakpoints";
 
-.footer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 1.5rem;
-
-    .copyright {
+.footer-left{
+    
+    .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
         display: flex;
-        align-items: center;
-
-        p {
-            font-size: 0.7rem;
-
-            @include desktop {
-                font-size: 1.2rem;
-              }
+        justify-content: space-between;
+        align-items: end;
+        padding: 0.5rem 1.5rem;
+    
+    
+        .copyright {
+            display: flex;
+            align-items: center;
+            width: 60%;
+    
+            p {
+                font-size: 0.7rem;
+    
+                @include LGmobil {
+                    font-size: 0.9rem;
+                }
+                @include tablet {
+                }
+                @include LGtablet {
+                }
+                @include desktop {
+                    font-size: 1.2rem;
+                }
+                @include LGdesktop {
+                }
+            }
+    
         }
-
+    
+        .social-links {
+            display: flex;
+            align-items: flex-end;
+            justify-content: end;
+            width: 40%;
+    
+            .social {
+                width: 95%;
+                padding-right: 0.4rem;
+    
+                @include LGmobil {
+                    width: 75%;
+                }
+                @include tablet {
+                    width: 24%;
+                }
+                @include LGtablet {
+                    width: 16%;
+                }
+                @include desktop {
+                    width: 11%;
+                }
+                @include LGdesktop {
+                    width: 9%;
+                }
+            }
+    
+            .avatar {
+                filter: drop-shadow(3px 8px 10px rgba(0, 0, 0, 0.39));
+    
+                @include LGmobil {
+                }
+                @include tablet {
+                    width: 40%;
+                }
+                @include LGtablet {
+                    width: 30%;
+                }
+                @include desktop {
+                    width: 25%;
+                }
+                @include LGdesktop {
+                    width: 20%;
+                }
+            }
+        }
     }
+}
 
-    .social-links {
+.footer-center{
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
         display: flex;
-        align-items: flex-end;
-        justify-content: end;
-
-        .social {
-            width: 15%;
-            padding-right: 0.4rem;
-
-            @include LGmobil {
-                width: 9%
+        justify-content: space-between;
+        align-items: end;
+        padding: 0.5rem 1.5rem;
+    
+    
+        .copyright {
+            display: flex;
+            align-items: center;
+            width: 60%;
+    
+            p {
+                font-size: 0.7rem;
+    
+                @include LGmobil {
+                    font-size: 0.9rem;
+                }
+                @include tablet {
+                }
+                @include LGtablet {
+                }
+                @include desktop {
+                    font-size: 1.2rem;
+                }
+                @include LGdesktop {
+                }
             }
-            @include tablet {
-                width: 9%
-            }
-            @include LGtablet {
-                width: 9%
-            }
-            @include desktop {
-                width: 9%
-            }
-            @include LGdesktop {
-                width: 9%
-            }
+    
         }
-
-        img {
-            width: 24%;
-            filter: drop-shadow(3px 8px 10px rgba(0, 0, 0, 0.39));
-
-            @include LGmobil {
-                width: 9%
+    
+        .social-links {
+            display: flex;
+            align-items: flex-end;
+            justify-content: end;
+            width: 40%;
+    
+            .social {
+                width: 95%;
+                padding-right: 0.4rem;
+    
+                @include LGmobil {
+                    width: 75%;
+                }
+                @include tablet {
+                    width: 24%;
+                }
+                @include LGtablet {
+                    width: 16%;
+                }
+                @include desktop {
+                    width: 11%;
+                }
+                @include LGdesktop {
+                    width: 9%;
+                }
             }
-            @include tablet {
-                width: 9%
-            }
-            @include LGtablet {
-                width: 9%
-            }
-            @include desktop {
-                width: 9%
-            }
-            @include LGdesktop {
-                width: 9%
+    
+            .avatar {
+                filter: drop-shadow(3px 8px 10px rgba(0, 0, 0, 0.39));
+    
+                @include LGmobil {
+                }
+                @include tablet {
+                    width: 40%;
+                }
+                @include LGtablet {
+                    width: 30%;
+                }
+                @include desktop {
+                    width: 25%;
+                }
+                @include LGdesktop {
+                    width: 20%;
+                }
             }
         }
     }
