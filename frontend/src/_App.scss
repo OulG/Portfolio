@@ -43,6 +43,12 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  margin: 0;
+  font-family: $Ibarra;
+  color: $grey;
+  background-color: $backgroundYellowGrey;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* A elements that don't have a class get default styles */
@@ -84,13 +90,4 @@ select {
 img {
   max-width: 100%;
   user-select: none;
-}
-
-body {
-  margin: 0;
-  font-family: $Ibarra;
-  color: $grey;
-  background-color: $backgroundYellowGrey;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }

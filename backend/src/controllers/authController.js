@@ -8,7 +8,7 @@ exports.login = (req, res) => {
   adminDataAccess.findByUserEmail(email).then((user) => {
     console.error(user);
     if (!user) {
-      return res.status(401).send("Invalid credentials20");
+      return res.status(401).send("Invalid credentials");
     }
     return verifyPassword(password, user[0].password_hash).then(
       (verification) => {

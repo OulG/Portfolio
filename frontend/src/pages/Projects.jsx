@@ -18,16 +18,18 @@ export default function Projects() {
     <MainLayout>
       <section className="projects">
         <h1>Works</h1>
-        <ul>
+        <div className="projects-link">
           {projects &&
             projects.map((project) => (
-              <li key={project.Id}>
-                <Link to={`/projects/${project.Id}`}>
-                  <ProjectId project={project} />
-                </Link>
-              </li>
+              <Link
+                to={`/projects/${project.Id}`}
+                key={project.Id}
+                className="link-project"
+              >
+                <ProjectId project={project} />
+              </Link>
             ))}
-        </ul>
+        </div>
       </section>
     </MainLayout>
   );

@@ -11,7 +11,7 @@ app.use(
   cors({
     origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
     optionsSuccessStatus: 200,
-    credentials: true,
+    withCredentials: true,
   })
 );
 
@@ -32,6 +32,11 @@ const projectRoutes = require("./routes/projectRoutes");
 const authRoutes = require("./routes/authRoutes");
 
 app.use("/api", router);
+
+router.use(function Prout(req, res, next) {
+  res.header("Access-Control-Allow-Credentials", true);
+  next();
+});
 
 router.use("/admin", adminRoutes);
 router.use("/project", projectRoutes);

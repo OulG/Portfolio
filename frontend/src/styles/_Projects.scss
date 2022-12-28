@@ -1,14 +1,39 @@
 @import "../styles/_Variables.scss";
 @import "../styles/Breakpoints";
 
-.application {
 
-    .projects {
-        h1 {
-            font-family: $BungeeOutline;
-            font-size: 3.4rem;
+.projects {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+
+    h1 {
+        margin: 6rem 0 2rem 0;
+        font-family: $BungeeOutline;
+        font-size: 4.3rem;
+        padding-left: 2.5rem;
+    }
+
+    .projects-link {
+        width: 95%;
+        margin: auto;
+        margin-bottom: 6rem;
+
+        .link-project:nth-of-type(odd) .container-box {
+            margin-left: auto;
+    
+            .box-left {
+                background-color: $green;
+            }
+            .box-right {
+                background-color: $lightBlue;
+            }
+        }
+    
+        .link-project:nth-of-type(even) .container-box {
+            margin-right: auto;
         }
 
     }
 }
-

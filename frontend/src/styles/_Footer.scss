@@ -78,7 +78,7 @@
                     width: 30%;
                 }
                 @include desktop {
-                    width: 25%;
+                    width: 18%;
                 }
                 @include LGdesktop {
                     width: 20%;
@@ -159,16 +159,16 @@
                 @include LGmobil {
                 }
                 @include tablet {
-                    width: 40%;
+                    width: 18%;
                 }
                 @include LGtablet {
-                    width: 30%;
+                    width: 18%;
                 }
                 @include desktop {
-                    width: 25%;
+                    width: 18%;
                 }
                 @include LGdesktop {
-                    width: 20%;
+                    width: 18%;
                 }
             }
         }
