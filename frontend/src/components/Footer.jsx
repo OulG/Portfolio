@@ -10,7 +10,7 @@ export default function Footer({ isMain }) {
     <footer className={isMain}>
       <div className="footer">
         <div className="copyright">
-          <p>Copyright 2022</p>
+          <p>Copyright 2023</p>
           <AiOutlineCopyrightCircle padding="0.2rem" />
           <p>Lou Gain</p>
         </div>
