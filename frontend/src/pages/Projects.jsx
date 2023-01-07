@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import api from "../services/services";
 import ProjectId from "../components/ProjectId";
 import "../styles/_Projects.scss";
+import MainLayout from "../components/layouts/MainLayout";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -14,18 +15,22 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="projects">
-      <h1>Works</h1>
-      <ul>
-        {projects &&
-          projects.map((project) => (
-            <li key={project.Id}>
-              <Link to={`/projects/${project.Id}`}>
+    <MainLayout>
+      <section className="projects">
+        <h1>Works</h1>
+        <div className="projects-link">
+          {projects &&
+            projects.map((project) => (
+              <Link
+                to={`/projects/${project.Id}`}
+                key={project.Id}
+                className="link-project"
+              >
                 <ProjectId project={project} />
               </Link>
-            </li>
-          ))}
-      </ul>
-    </section>
+            ))}
+        </div>
+      </section>
+    </MainLayout>
   );
 }

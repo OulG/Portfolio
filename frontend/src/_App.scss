@@ -43,6 +43,12 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  margin: 0;
+  font-family: $Ibarra;
+  color: $grey;
+  background-color: $backgroundYellowGrey;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* A elements that don't have a class get default styles */
@@ -84,34 +90,4 @@ select {
 img {
   max-width: 100%;
   user-select: none;
-}
-
-body {
-  margin: 0;
-  font-family: $Ibarra;
-  color: $grey;
-  background-color: $backgroundYellowGrey;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.App {
-  .Application {
-    padding: 0 2rem;
-  }
-  @include LGmobil {
-    padding: 0 2rem;
-  }
-  @include tablet {
-    padding: 0 2rem;
-    }
-  @include LGtablet {
-    padding: 0 2rem;
-    }
-  @include desktop {
-    padding: 0 3rem;
-  }
-  @include LGdesktop {
-    padding: 0 3rem;
-  }
 }
