@@ -1,0 +1,68 @@
+@import "../styles/_Variables.scss";
+@import "../styles/Breakpoints";
+
+.connect-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+    h2 {
+        font-family: $Bungee;
+        font-size: 2.5rem;
+        padding: 1rem;
+    }
+
+    .login {
+
+        .verif-form {
+            padding: 1rem;
+
+            .input {
+                width: 20vw;
+                text-align: center;
+                border-radius: 5px;
+                
+            }
+        }
+    }
+
+    .login-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 2rem;
+        
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            border-radius: 10px;
+            display: block;
+            border: 0px;
+            font-weight: 700;
+            color: $white;
+            box-shadow: 0px 0px 14px -7px #f09819;
+            background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+
+            &:hover {
+                background-position: right center;
+                /* change the direction of the change here */
+                color: #fff;
+                text-decoration: none;
+              }
+              
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}
