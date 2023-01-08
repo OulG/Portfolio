@@ -81,6 +81,6 @@ exports.deleteOne = (req, res) => {
 
   projectDataAccess
     .destroy(projectId)
-    .then((deleteUser) => res.send(deleteUser))
+    .then((deleteProject) => res.send(deleteProject))
     .catch((err) => res.status(500).send(err));
 };
