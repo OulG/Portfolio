@@ -32,6 +32,7 @@ const projectRoutes = require("./routes/projectRoutes");
 const authRoutes = require("./routes/authRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const toolRoutes = require("./routes/toolRoutes");
+const toolProjectRoutes = require("./routes/toolProjectRoutes");
 
 app.use("/api", router);
 
@@ -44,6 +45,7 @@ router.use("/project", projectRoutes);
 router.use("/auth", authRoutes);
 router.use("/admin", adminRoutes);
 router.use("/tool", toolRoutes);
+router.use("/toolProject", toolProjectRoutes);
 
 // Redirect all requests to the REACT app
 const reactIndexFile = path.join(
