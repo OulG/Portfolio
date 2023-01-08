@@ -1,26 +1,32 @@
 const projectDataAccess = require("../models/projectDataAccess");
 const projectToolDataAccess = require("../models/projectToolDataAccess");
 
-exports.getAll = (req, res) => {
-  projectDataAccess
-    .findAll()
-    .then((projects) => res.send(projects))
-    .catch((err) => res.status(500).send(err));
+exports.getAll = async (req, res) => {
+  try {
+    const projects = await projectDataAccess.findAll();
+
+    res.send(projects);
+  } catch (err) {
+    res.status(500).send(err);
+  }
 };
 
-exports.getOne = (req, res) => {
-  const projectId = parseInt(req.params.id, 10);
+exports.getOne = async (req, res) => {
+  try {
+    const projectId = parseInt(req.params.id, 10);
 
-  projectDataAccess
-    .findOne(projectId)
-    .then((project) => {
-      if (project.length === 0) {
-        res.sendStatus(404);
-      } else {
-        res.send(project);
-      }
-    })
-    .catch((err) => res.status(500).send(err));
+    const project = await projectDataAccess.findOne(projectId);
+
+    if (project.length === 0) {
+      res.sendStatus(404);
+    } else {
+      const projectTools = await projectToolDataAccess.findByProject(projectId);
+      project.tools = projectTools;
+      res.send(project);
+    }
+  } catch (err) {
+    res.status(500).send(err);
+  }
 };
 
 exports.addOne = (req, res) => {

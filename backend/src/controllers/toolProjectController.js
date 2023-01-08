@@ -1,4 +1,4 @@
-const toolProjectDataAccess = require("../models/toolProjectDataAccess");
+const toolProjectDataAccess = require("../models/projectToolDataAccess");
 
 exports.getAll = (req, res) => {
   toolProjectDataAccess
@@ -11,7 +11,7 @@ exports.getOne = (req, res) => {
   const projectId = parseInt(req.params.projectId, 10);
 
   toolProjectDataAccess
-    .findOne(projectId)
+    .findByProject(projectId)
     .then((tool) => {
       if (tool.length === 0) {
         res.sendStatus(404);

@@ -2,6 +2,21 @@ const connection = require("../../db-config");
 
 const db = connection.promise();
 
+const findAll = () => {
+  return db
+    .query("SELECT * FROM project_has_tools")
+    .then(([results]) => results);
+};
+
+const findByProject = (projectId) => {
+  return db
+    .query(
+      "SELECT tool.* FROM project_has_tools INNER JOIN tool ON tool.id = project_has_tools.tool_id WHERE project_Id = ?",
+      [projectId]
+    )
+    .then(([results]) => results);
+};
+
 const create = (projectId, toolId) => {
   return db
     .query(
@@ -19,4 +34,4 @@ const update = (toolId) => {
   ]);
 };
 
-module.exports = { create, update };
+module.exports = { create, update, findAll, findByProject };
