@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import api from "../services/services";
 import MainLayout from "../components/layouts/MainLayout";
 import "../styles/_Main.scss";
 import "../styles/_Connect.scss";
@@ -33,9 +33,9 @@ export default function Connect() {
 
   const searchUser = () => {
     try {
-      axios
+      api
         .post(
-          `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`,
+          `/api/auth/login`,
           {
             username,
             email,

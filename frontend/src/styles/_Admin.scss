@@ -1,0 +1,34 @@
+@import "../styles/_Variables.scss";
+@import "../styles/Breakpoints";
+
+.admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+
+    section:nth-of-type(2) {
+        border-top: 1px solid black;
+        padding-bottom: 4rem
+    }
+
+    .project {
+        margin: 6rem 0 2rem 0;
+        width: 70vw;
+
+        h2 {
+            font-family: $Bungee;
+            font-size: 1.6rem;
+            padding: 3rem 0 2rem 0.8rem;        }
+
+        .select-project {
+            border: outset;
+            border-radius: 4px;
+            width: 60%;
+            height: 2.4rem;
+            padding: 0.4rem;
+            margin: 0.4em 0 1em 0.8rem;
+        }
+    }
+}
