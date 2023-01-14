@@ -6,13 +6,26 @@ import MainLayout from "../components/layouts/MainLayout";
 
 export default function Project() {
   const { projectId } = useParams();
-  const [project, setProject] = useState([]);
+  const [project, setProject] = useState(null);
+  const [fetchError, setfetchError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    api.get(`/api/project/${projectId}`).then((res) => {
-      setProject(res.data);
-    });
+    api
+      .get(`/api/project/${projectId}`)
+      .then((res) => {
+        setProject(res.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setfetchError(err);
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) return "Chargement...";
+  if (fetchError) return "Erreur";
+  if (!project) return "Aucun projet trouvé";
 
   return (
     <MainLayout>
@@ -26,10 +39,22 @@ export default function Project() {
                 src={`${import.meta.env.VITE_BACKEND_URL}${project.picture}`}
                 alt={project.id}
               />
+              {/* <img
+                src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/${
+                  project.picture
+                }`}
+                alt={project.id}
+              /> */}
             </div>
             <div className="description">
               <h1>{project.title}</h1>
               <p>{project.description}</p>
+              <ul>
+                {project.tools.map((tool) => (
+                  <li key={tool.id}>{tool.name}</li>
+                ))}
+              </ul>
+
               <a
                 href={project.link}
                 className="btn-flip"
