@@ -60,24 +60,24 @@ exports.addOne = (req, res) => {
 
 exports.updateOne = (req, res) => {
   const projectId = parseInt(req.params.id, 10);
-  const { title, description, picture, link } = req.body;
+  const { title, description, picture, link, projectTools } = req.body;
 
   projectDataAccess
     .update(projectId, { title, description, picture, link })
-    // .then((updateProject) => {
-    //   console.error(updateProject);
-    //   // Pour chaque tool, je fais une requête qui vient lié l'Id du project & l'Id du tool.
-    //   const request = projectTools.map((toolId) => {
-    //     return projectToolDataAccess.update(updateProject.id, toolId);
-    //   });
-    //   Promise.all(request)
-    //     .then(() => {
-    //       res.status(201).send("Good job Lou!");
-    //     })
-    //     .catch((err) => {
-    //       res.status(500).send({ err });
-    //     });
-    // })
+    .then((updateProject) => {
+      console.error(updateProject);
+      // Pour chaque tool, je fais une requête qui vient lié l'Id du project & l'Id du tool.
+      const request = projectTools.map((toolId) => {
+        return projectToolDataAccess.update(updateProject.id, toolId);
+      });
+      Promise.all(request)
+        .then(() => {
+          res.status(201).send("Good job Lou!");
+        })
+        .catch((err) => {
+          res.status(500).send({ err });
+        });
+    })
     .then(() => res.status(201).json("You'r really good"))
     .catch((err) => res.status(300).send({ err }));
 };
