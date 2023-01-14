@@ -31,7 +31,13 @@ export default function Project() {
     <MainLayout>
       <section className="project">
         {project && (
-          <div>
+          <div className="inside-project">
+            <h1>{project.title}</h1>
+            <ul>
+              {project.tools.map((tool) => (
+                <li key={tool.id}>{tool.name}</li>
+              ))}
+            </ul>
             <div className="container-box2">
               <div className="box-left2" />
               <div className="box-right2" />
@@ -47,7 +53,6 @@ export default function Project() {
               /> */}
             </div>
             <div className="description">
-              <h1>{project.title}</h1>
               <p>{project.description}</p>
               <ul>
                 {project.tools.map((tool) => (
