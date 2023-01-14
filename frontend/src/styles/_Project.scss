@@ -2,137 +2,165 @@
 @import "../styles/Breakpoints";
 
 .project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: auto;
 
-    .container-box2 {
-        position: relative;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        height: 11rem;
-
-        @include LGmobil {
-            height: 12rem;
-        }
-        @include tablet {
-            height: 18rem;
-        }
-        @include LGtablet {
-            height: 27rem;
-        }
-        @include desktop {
-            height: 34rem;
-        }
-        @include LGdesktop {
-            height: 42rem;
-        }
-
-        .box-left2 {
-            width: 50%;
-            height: 100%;
-            background-color: $pink;
-        }
-
-        .box-right2 {
-            width: 50%;
-            height: 100%;
-            background-color: $blue;
-        }
-
-        img {
-            position: absolute;
-            border: 3px solid black;
-            width: 84%;
-            height: 90%;
-            left: 7%;
-
-        @include LGmobil {
-            left: 8%;
-        }
-        @include LGtablet {
-            width: 90%;
-            left: 7%;
-        }
-        @include desktop {
-            width: 84%;
-        }
-        @include LGdesktop {
-            width: 84%;
-            height: 90%;
-        }
-        }
-    }
-
-    .description {
+    .inside-project {
+        margin: 6rem 0 2rem 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        margin-top: 1.7rem;
-        padding-bottom: 2.8rem;
 
+            
         h1 {
-            font-size: 2rem;
+            font-family: $BungeeShade;
+            font-size: 2.3rem;
         }
 
-        p {
-            font-size: 1rem;
-            text-align: justify;
+        ul {
+            display: flex;
+            font-size: 1.5rem;
+            font-weight: 700;
+            width: 100%;
+            padding: 0.6rem 0 1.6rem 0.7rem;
+
+            li {
+                padding-right: 1.5rem;
+            }
         }
 
-        .btn-flip {
-            display: inline-block;
-            margin: 3rem auto;
-            opacity: 1;
-            outline: 0;
-            color: #fff;
-            line-height: 40px;
+        .container-box2 {
             position: relative;
-            text-align: center;
-            letter-spacing: 1px;
-            text-decoration: none;
-            font-family: 'Open Sans';
-            text-transform: uppercase;
-        
-            &:hover {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 11rem;
+            align-self: center;
+    
+            @include LGmobil {
+                height: 15rem;
+            }
+            @include tablet {
+                width: 85%;
+                height: 17rem;
+            }
+            @include LGtablet {
+                width: 70%;
+                height: 20rem;
+            }
+            @include desktop {
+                height: 22rem;
+            }
+            @include LGdesktop {
+                width: 60%;
+                height: 25rem;
+            }
+    
+            .box-left2 {
+                width: 50%;
+                height: 100%;
+                background-color: $pink;
+            }
+    
+            .box-right2 {
+                width: 50%;
+                height: 100%;
+                background-color: $blue;
+            }
+    
+            img {
+                position: absolute;
+                border: 3px solid black;
+                width: 84%;
+                height: 90%;
+                left: 7%;
+    
+            @include LGmobil {
+                left: 8%;
+            }
+            @include LGtablet {
+                width: 90%;
+                left: 7%;
+            }
+            @include desktop {
+                width: 84%;
+            }
+            @include LGdesktop {
+                width: 84%;
+                height: 90%;
+            }
+            }
+        }
+    
+        .description {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 2.7rem 1.2rem;
+    
+            p {
+                font-size: 1.4rem;
+                text-align: justify;
+            }
+    
+            .btn-flip {
+                display: inline-block;
+                margin: 3rem auto;
+                opacity: 1;
+                outline: 0;
+                color: #fff;
+                line-height: 40px;
+                position: relative;
+                text-align: center;
+                letter-spacing: 1px;
+                text-decoration: none;
+                font-family: 'Open Sans';
+                text-transform: uppercase;
+            
+                &:hover {
+                    
+                    &:after {
+                    opacity: 1;
+                    transform: translateY(0) rotateX(0);
+                    }
+                    
+                    &:before {
+                    opacity: 0;
+                    transform: translateY(50%) rotateX(90deg);
+                    }
+                }
                 
                 &:after {
-                opacity: 1;
-                transform: translateY(0) rotateX(0);
+                    top: 0;
+                    left: 0;
+                    opacity: 0;
+                    width: 100%;
+                    color: #323237;
+                    display: block;
+                    transition: 0.5s;
+                    position: absolute;
+                    background: $backgroundYellow;
+                    content: attr(data-back);
+                    transform: translateY(-50%) rotateX(90deg);
                 }
                 
                 &:before {
-                opacity: 0;
-                transform: translateY(50%) rotateX(90deg);
+                    top: 0;
+                    left: 0;
+                    opacity: 1;
+                    color: #adadaf;
+                    display: block;
+                    padding: 0 30px;
+                    line-height: 40px;
+                    transition: 0.5s;
+                    position: relative;
+                    background: #323237;
+                    content: attr(data-front);
+                    transform: translateY(0) rotateX(0);
                 }
             }
-            
-            &:after {
-                top: 0;
-                left: 0;
-                opacity: 0;
-                width: 100%;
-                color: #323237;
-                display: block;
-                transition: 0.5s;
-                position: absolute;
-                background: $backgroundYellow;
-                content: attr(data-back);
-                transform: translateY(-50%) rotateX(90deg);
-            }
-            
-            &:before {
-                top: 0;
-                left: 0;
-                opacity: 1;
-                color: #adadaf;
-                display: block;
-                padding: 0 30px;
-                line-height: 40px;
-                transition: 0.5s;
-                position: relative;
-                background: #323237;
-                content: attr(data-front);
-                transform: translateY(0) rotateX(0);
-            }
-        }
-    } 
+        } 
+    }
 }

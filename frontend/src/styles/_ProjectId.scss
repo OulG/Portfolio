@@ -82,17 +82,25 @@
 
     .title-project {
       position: absolute;
-      font-size: 30px;
+      font-size: 2.2rem;
       top: calc(50% - 30px);
-      left: calc(50% - 75px);
-      width: 150px;
-      height: 60px;
+      left: calc(50% - 105px);
       text-align: center;
-      line-height: 56px;
+      width: 250px;
+      height: 90px;
+      line-height: normal;
       opacity: 0;
       transition: 0.3s;
       z-index: 999; // L'élément passera au dessus de tout !
       color: black;
+      background-color: aliceblue;
     }
+    // .title-project {
+    //   font-size: 30px;
+    //   top: calc(50% - 30px);
+    //   left: calc(50% - 75px);
+    //   width: 150px;
+    //   height: 60px;
+    // }
   }
 }
