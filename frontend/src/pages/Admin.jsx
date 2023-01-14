@@ -67,7 +67,7 @@ export default function Admin() {
   return (
     <MainLayout>
       <div className="admin">
-        <section className="project">
+        <section className="admin-project">
           <h2>Update or delete project</h2>
           <select
             name="show-project"
@@ -85,21 +85,19 @@ export default function Admin() {
           {showProject
             .filter((filtered) => filtered.title === filterProject)
             .map((elem) => (
-              <div key={elem.Id}>
-                <EditProject
-                  key={elem.Id}
-                  titles={elem.title}
-                  descriptions={elem.description}
-                  links={elem.link}
-                  pictures={elem.picture}
-                  tools={elem.tools}
-                  IdProject={elem.Id}
-                  allTools={allTools}
-                />
-              </div>
+              <EditProject
+                key={elem.Id}
+                titles={elem.title}
+                descriptions={elem.description}
+                links={elem.link}
+                pictures={elem.picture}
+                tools={elem.tools}
+                IdProject={elem.Id}
+                allTools={allTools}
+              />
             ))}
         </section>
-        <section className="project">
+        <section className="admin-project">
           <h2>New project</h2>
           <NewProject
             handleProject={handleProject}
