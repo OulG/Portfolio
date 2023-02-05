@@ -1,4 +1,4 @@
-const adminDataAccess = require("../models/adminDataAccess");
+const adminDataAccess = require("../models/userDataAccess");
 const { verifyPassword } = require("../helpers/argonHelper");
 const { encodeJwt } = require("../helpers/jwtHelper");
 
@@ -7,7 +7,6 @@ exports.login = async (req, res, next) => {
 
   try {
     const user = await adminDataAccess.findByUserEmail(email);
-    res.send(user);
     if (!user) {
       res.status(401).send("Invalid credentials");
     } else {
