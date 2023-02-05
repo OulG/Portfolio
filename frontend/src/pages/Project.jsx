@@ -42,15 +42,9 @@ export default function Project() {
               <div className="box-left2" />
               <div className="box-right2" />
               <img
-                src={`${import.meta.env.VITE_BACKEND_URL}${project.picture}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/${project.picture}`}
                 alt={project.id}
               />
-              {/* <img
-                src={`${import.meta.env.VITE_BACKEND_URL}/assets/images/${
-                  project.picture
-                }`}
-                alt={project.id}
-              /> */}
             </div>
             <div className="description">
               <p>{project.description}</p>
