@@ -1,9 +1,9 @@
-const adminDataAccess = require("../models/adminDataAccess");
+const userDataAccess = require("../models/userDataAccess");
 const { hashPassword } = require("../helpers/argonHelper");
 
 exports.getAll = async (req, res, next) => {
   try {
-    const users = await adminDataAccess.findAll();
+    const users = await userDataAccess.findAll();
     res.send(users);
   } catch (error) {
     next(error);
@@ -11,14 +11,8 @@ exports.getAll = async (req, res, next) => {
 };
 
 exports.getOne = async (req, res, next) => {
-  const userId = parseInt(req.params.id, 10);
   try {
-    const user = await adminDataAccess.findOne(userId);
-    if (user.length === 0) {
-      res.sendStatus(404);
-    } else {
-      res.send(user);
-    }
+    res.send(req.user);
   } catch (error) {
     next(error);
   }
@@ -28,7 +22,7 @@ exports.addOne = async (req, res, next) => {
   const { username, email, password } = req.body;
   try {
     const hash = await hashPassword(password);
-    await adminDataAccess.create({
+    await userDataAccess.create({
       username,
       email,
       hash,
@@ -45,14 +39,14 @@ exports.updateOne = async (req, res, next) => {
   try {
     if (password) {
       const hash = await hashPassword(password);
-      const user = await adminDataAccess.update(userId, {
+      const user = await userDataAccess.update(userId, {
         username,
         email,
         password_hash: hash,
       });
       res.send(user);
     } else {
-      const user = await adminDataAccess.update(userId, { ...req.body });
+      const user = await userDataAccess.update(userId, { ...req.body });
       res.send(user);
     }
   } catch (error) {
@@ -63,7 +57,7 @@ exports.updateOne = async (req, res, next) => {
 exports.deleteOne = async (req, res, next) => {
   const userId = parseInt(req.params.id, 10);
   try {
-    const deleteUser = await adminDataAccess.destroy(userId);
+    const deleteUser = await userDataAccess.destroy(userId);
     res.send(deleteUser);
   } catch (error) {
     next(error);

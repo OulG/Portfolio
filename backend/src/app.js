@@ -30,7 +30,7 @@ const router = express.Router();
 
 const projectRoutes = require("./routes/projectRoutes");
 const authRoutes = require("./routes/authRoutes");
-const adminRoutes = require("./routes/adminRoutes");
+const userRoutes = require("./routes/userRoutes");
 const toolRoutes = require("./routes/toolRoutes");
 const toolProjectRoutes = require("./routes/toolProjectRoutes");
 
@@ -43,7 +43,7 @@ router.use((req, res, next) => {
 
 router.use("/projects", projectRoutes);
 router.use("/auth", authRoutes);
-router.use("/admin", adminRoutes);
+router.use("/admin", userRoutes);
 router.use("/tools", toolRoutes);
 router.use("/toolsProject", toolProjectRoutes);
 
