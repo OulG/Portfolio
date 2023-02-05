@@ -1,23 +1,25 @@
 const toolProjectDataAccess = require("../models/projectToolDataAccess");
 
-exports.getAll = (req, res) => {
-  toolProjectDataAccess
-    .findAll()
-    .then((tools) => res.send(tools))
-    .catch((err) => res.status(500).send(err));
+exports.getAll = async (req, res, next) => {
+  try {
+    const tools = await toolProjectDataAccess.findAll();
+    res.send(tools);
+  } catch (error) {
+    next(error);
+  }
 };
 
-exports.getOne = (req, res) => {
+exports.getOne = async (req, res, next) => {
   const projectId = parseInt(req.params.projectId, 10);
 
-  toolProjectDataAccess
-    .findByProject(projectId)
-    .then((tool) => {
-      if (tool.length === 0) {
-        res.sendStatus(404);
-      } else {
-        res.send(tool);
-      }
-    })
-    .catch((err) => res.status(500).send(err));
+  try {
+    const tool = await toolProjectDataAccess.findByProject(projectId);
+    if (tool.length === 0) {
+      res.sendStatus(404);
+    } else {
+      res.send(tool);
+    }
+  } catch (error) {
+    next(error);
+  }
 };

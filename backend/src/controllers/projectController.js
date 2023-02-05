@@ -1,17 +1,17 @@
 const projectDataAccess = require("../models/projectDataAccess");
 const projectToolDataAccess = require("../models/projectToolDataAccess");
 
-exports.getAll = async (req, res) => {
+exports.getAll = async (req, res, next) => {
   try {
     const projects = await projectDataAccess.findAll();
 
     res.send(projects);
-  } catch (err) {
-    res.status(500).send(err);
+  } catch (error) {
+    next(error);
   }
 };
 
-exports.getOne = async (req, res) => {
+exports.getOne = async (req, res, next) => {
   try {
     const projectId = parseInt(req.params.id, 10);
 
@@ -24,69 +24,58 @@ exports.getOne = async (req, res) => {
       project.tools = projectTools;
       res.send(project);
     }
-  } catch (err) {
-    res.status(500).send(err);
+  } catch (error) {
+    next(error);
   }
 };
 
-exports.addOne = (req, res) => {
+exports.addOne = async (req, res, next) => {
   const { title, description, picture, link, projectTools } = req.body;
 
-  projectDataAccess
-    .create({
+  try {
+    const newProject = await projectDataAccess.create({
       title,
       description,
       picture,
       link,
-    })
-    .then((newProject) => {
-      console.error(newProject);
-      // Pour chaque tool, je fais une requête qui vient lié l'Id du project & l'Id du tool.
-      const request = projectTools.map((toolId) => {
-        return projectToolDataAccess.create(newProject.id, toolId);
-      });
-      Promise.all(request)
-        .then(() => {
-          res.status(201).send("Good job Lou!");
-        })
-        .catch((err) => {
-          res.status(500).send({ err });
-        });
-    })
-    .catch((err) => {
-      res.status(500).send({ err });
     });
+    // Pour chaque tool, je fais une requête qui vient lié l'Id du project & l'Id du tool.
+    const request = projectTools.map((toolId) => {
+      return projectToolDataAccess.create(newProject.id, toolId);
+    });
+    await Promise.all(request);
+    res.sendStatus(201);
+  } catch (error) {
+    next(error);
+  }
 };
 
-exports.updateOne = (req, res) => {
+exports.updateOne = async (req, res, next) => {
   const projectId = parseInt(req.params.id, 10);
   const { title, description, picture, link, projectTools } = req.body;
-
-  projectDataAccess
-    .update(projectId, { title, description, picture, link })
-    .then((updateProject) => {
-      console.error(updateProject);
-      // Pour chaque tool, je fais une requête qui vient lié l'Id du project & l'Id du tool.
-      const request = projectTools.map((toolId) => {
-        return projectToolDataAccess.update(updateProject.id, toolId);
-      });
-      Promise.all(request)
-        .then(() => {
-          res.status(201).send("Good job Lou!");
-        })
-        .catch((err) => {
-          res.status(500).send({ err });
-        });
-    })
-    .then(() => res.status(201).json("You'r really good"))
-    .catch((err) => res.status(300).send({ err }));
+  try {
+    await projectDataAccess.update(projectId, {
+      title,
+      description,
+      picture,
+      link,
+    });
+    projectToolDataAccess.deleteByProjectId(projectId);
+    const request = projectTools.map((toolId) => {
+      return projectToolDataAccess.create(projectId, toolId);
+    });
+    await Promise.all(request);
+    res.sendStatus(201);
+  } catch (error) {
+    next(error);
+  }
 };
 
-exports.deleteOne = (req, res) => {
+exports.deleteOne = async (req, res, next) => {
   const projectId = parseInt(req.params.id, 10);
-
-  projectDataAccess
-    .destroy(projectId)
-    .then((deleteProject) => res.send(deleteProject))
-    .catch((err) => res.status(500).send(err));
+  try {
+    await projectDataAccess.destroy(projectId);
+  } catch (error) {
+    next(error);
+  }
 };
