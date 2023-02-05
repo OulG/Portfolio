@@ -12,7 +12,7 @@ export default function Project() {
 
   useEffect(() => {
     api
-      .get(`/api/project/${projectId}`)
+      .get(`/api/projects/${projectId}`)
       .then((res) => {
         setProject(res.data);
         setIsLoading(false);
@@ -54,12 +54,6 @@ export default function Project() {
             </div>
             <div className="description">
               <p>{project.description}</p>
-              <ul>
-                {project.tools.map((tool) => (
-                  <li key={tool.id}>{tool.name}</li>
-                ))}
-              </ul>
-
               <a
                 href={project.link}
                 className="btn-flip"

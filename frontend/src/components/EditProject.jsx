@@ -33,7 +33,7 @@ export default function ProjectForm({
     try {
       axios
         .post(
-          `${import.meta.env.VITE_BACKEND_URL}/api/project/${IdProject}`,
+          `${import.meta.env.VITE_BACKEND_URL}/api/projects/${IdProject}`,
           formData,
           {
             headers: {

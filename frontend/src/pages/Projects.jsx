@@ -9,7 +9,7 @@ export default function Projects() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    api.get("/api/project").then((res) => {
+    api.get("/api/projects").then((res) => {
       setProjects(res.data);
     });
   }, []);
