@@ -28,10 +28,17 @@ const create = (projectId, toolId) => {
     });
 };
 
-const update = (toolId) => {
+const update = (projectId, toolId) => {
   return db.query("UPDATE project_has_tools SET ? WHERE project_id = ?", [
+    projectId,
     toolId,
   ]);
 };
 
-module.exports = { create, update, findAll, findByProject };
+const deleteByProjectId = (projectId) => {
+  return db.query("DELETE FROM project_has_tools WHERE project_id = ?", [
+    projectId,
+  ]);
+};
+
+module.exports = { create, update, findAll, findByProject, deleteByProjectId };
