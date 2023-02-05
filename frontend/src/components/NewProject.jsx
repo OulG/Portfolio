@@ -18,7 +18,7 @@ export default function ProjectForm({ allTools }) {
 
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("picture", picture[0]);
+    formData.append("file", picture[0]);
     formData.append("link", link);
     formData.append("tools", tools);
 
@@ -36,89 +36,13 @@ export default function ProjectForm({ allTools }) {
       console.error(error);
     }
   };
-  // console.log("title", title);
-  // console.log("description", description);
-  // console.log("link", link);
-  // console.log("tools", tools);
 
   return (
-    // <Formik onSubmit={addProject} validateOnMount>
-    //   <Form className="project-form">
-    //     <div onChange={(e) => setTitle(e.target.value)} className="verif-form">
-    //       <Field
-    //         name="title"
-    //         placeholder="Title"
-    //         type="text"
-    //         className="input"
-    //         required
-    //       />
-    //       <ErrorMessage name="title" className="text-danger" component="span" />
-    //     </div>
-    //     <div
-    //       onChange={(e) => setDescription(e.target.value)}
-    //       className="verif-form"
-    //     >
-    //       <textarea
-    //         name="description"
-    //         placeholder="Description"
-    //         type="textarea"
-    //         rows="6"
-    //         className="description"
-    //         required
-    //       />
-    //       <ErrorMessage
-    //         name="description"
-    //         className="text-danger"
-    //         component="span"
-    //       />
-    //     </div>
-    //     <div
-    //       onChange={(e) => setPicture(e.target.files)}
-    //       className="verif-form"
-    //     >
-    //       <Field
-    //         name="picture"
-    //         placeholder="Picture"
-    //         type="file"
-    //         className="file"
-    //         required
-    //       />
-    //     </div>
-    //     <div onChange={(e) => setLink(e.target.value)} className="verif-form">
-    //       <Field
-    //         name="link"
-    //         placeholder="Link"
-    //         type="url"
-    //         className="input"
-    //         required
-    //       />
-    //     </div>
-    //     <div className="verif-form">
-    //       <ul className="tools-list">
-    //         {allTools.map(({ Id, name }) => {
-    //           return (
-    //             <li key={Id} className="tools-list-item">
-    //               <input
-    //                 type="checkbox"
-    //                 id={Id}
-    //                 name={name}
-    //                 value={name}
-    //                 onChange={(e) => setTools(e.target.id)}
-    //               />
-    //               <label htmlFor={Id}>{name}</label>
-    //             </li>
-    //           );
-    //         })}
-    //       </ul>
-    //     </div>
-    //     <div className="buttons">
-    //       <button type="submit">add</button>
-    //     </div>
-    //   </Form>
-    // </Formik>
     <form onSubmit={addProject} validateOnMount className="project-form">
-      <div onChange={(e) => setTitle(e.target.value)} className="verif-form">
+      <div className="verif-form">
         <input
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
           name="title"
           placeholder="Title"
           type="text"
@@ -126,11 +50,10 @@ export default function ProjectForm({ allTools }) {
           required
         />
       </div>
-      <div
-        onChange={(e) => setDescription(e.target.value)}
-        className="verif-form"
-      >
+      <div className="verif-form">
         <textarea
+          onChange={(e) => setDescription(e.target.value)}
+          value={description}
           name="description"
           placeholder="Description"
           type="textarea"
@@ -139,8 +62,9 @@ export default function ProjectForm({ allTools }) {
           required
         />
       </div>
-      <div onChange={(e) => setPicture(e.target.files)} className="verif-form">
+      <div className="verif-form">
         <input
+          onChange={(e) => setPicture(e.target.files)}
           name="picture"
           placeholder="Picture"
           type="file"
@@ -148,8 +72,10 @@ export default function ProjectForm({ allTools }) {
           required
         />
       </div>
-      <div onChange={(e) => setLink(e.target.value)} className="verif-form">
+      <div className="verif-form">
         <input
+          onChange={(e) => setLink(e.target.value)}
+          value={link}
           name="link"
           placeholder="Link"
           type="url"
@@ -168,6 +94,7 @@ export default function ProjectForm({ allTools }) {
                   name={name}
                   value={name}
                   onChange={(e) => setTools(e.target.id)}
+                  // value={name}
                 />
                 <label htmlFor={Id}>{name}</label>
               </li>
