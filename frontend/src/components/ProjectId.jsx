@@ -7,7 +7,7 @@ export default function ProjectId({ project }) {
       <div className="box-right" />
       <div className="box-image">
         <img
-          src={`${import.meta.env.VITE_BACKEND_URL}${project.picture}`}
+          src={`${import.meta.env.VITE_BACKEND_URL}/${project.picture}`}
           alt={project.id}
         />
         <p className="title-project">{project.title}</p>
