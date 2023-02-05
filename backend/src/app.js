@@ -36,16 +36,16 @@ const toolProjectRoutes = require("./routes/toolProjectRoutes");
 
 app.use("/api", router);
 
-router.use(function Prout(req, res, next) {
+router.use((req, res, next) => {
   res.header("Access-Control-Allow-Credentials", true);
   next();
 });
 
-router.use("/project", projectRoutes);
+router.use("/projects", projectRoutes);
 router.use("/auth", authRoutes);
 router.use("/admin", adminRoutes);
-router.use("/tool", toolRoutes);
-router.use("/toolProject", toolProjectRoutes);
+router.use("/tools", toolRoutes);
+router.use("/toolsProject", toolProjectRoutes);
 
 // Redirect all requests to the REACT app
 const reactIndexFile = path.join(
